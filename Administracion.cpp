@@ -506,7 +506,7 @@ void RegRecep () {
 		
 		system("CLS");
 		
-		printf("No se cumplieron las condiciones para la creacion de la contraseña");
+		printf("No se cumplieron las condiciones para la creacion de la clave");
 		printf("\n¿Reintentar?");
 		printf("\n\n[0] = No, Salir");
 		printf("\n[1] = Si, Reintentar");

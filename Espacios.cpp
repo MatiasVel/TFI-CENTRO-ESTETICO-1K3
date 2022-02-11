@@ -5,7 +5,7 @@
 #include <locale.h>
 #include <time.h>
 #include <string.h>
-#include "TG.h"
+#include "Centro_estetico.h"
 
 bool inicio (Usuario &Pro);
 
@@ -86,11 +86,11 @@ bool inicio (Usuario &Pro) {
 	Arch = fopen("Profesionales.dat", "r+b");
 	
 	printf("Ingrese los datos requeridos");
-	printf("\n=============================");
+	printf("\n");
 	printf("\n\n [usuario] = ");
 	_flushall();
 	gets(Buscar.Usuario);
-	printf("\n [contraseña] = ");
+	printf("\n [clave] = ");
 	gets(Buscar.Clave);
 	
 	fread(&Dato, sizeof(Usuario), 1, Arch);
@@ -112,7 +112,7 @@ bool inicio (Usuario &Pro) {
 		
 		system("CLS");
 		
-		printf("usuario o contraseña Incorrectos...");
+		printf("usuario o clave Incorrectos...");
 		
 	} else {
 		
@@ -150,7 +150,7 @@ void listarturnos (Usuario Pro) {
 	}
 	
 	printf("Ingrese los datos requeridos");
-	printf("\n==============================");
+	printf("\n");
 	printf("\n\n[Fecha actual]");
 	printf("\n\n\t[Dia - DD] = ");
 	scanf("%d", &Actual.DD);
@@ -164,7 +164,7 @@ void listarturnos (Usuario Pro) {
 	system("CLS");
 	
 	printf("Lista de turnos");
-	printf("\n=================\n\n");
+	printf("\n\n\n");
 	
 	while (!feof(Arch)) {
 		
@@ -232,7 +232,7 @@ void atencion (Usuario Pro) {
 	}
 	
 	printf("Ingrese los datos requeridos para comenzar la atencion");
-	printf("\n========================================================");
+	printf("\n");
 	printf("\n\n[Apellido y nombre del cliente] = ");
 	_flushall();
 	gets(Nom);
@@ -264,7 +264,7 @@ void atencion (Usuario Pro) {
 					system("CLS");
 			
 					printf("Datos del cliente");
-					printf("\n=================");
+					printf("\n");
 					printf("\n\n[Apellido y Nombre] => %s", DatoCli.ApeNom);
 					printf("\n[DNI] => %d", DatoCli.DNI);
 					printf("\n[Domicilio] => %s", DatoCli.Domicilio);

@@ -7,6 +7,17 @@
 #include <string.h>
 #include "Centro_estetico.h"
 
+bool Inicio ();
+
+void RegCliente ();
+
+void RegTurno ();
+
+void Listado ();
+
+
+
+
 bool Inicio () {
 	
 	FILE *Arch;
@@ -136,18 +147,18 @@ void RegTurno () {
 	
 	Arch = fopen("Turnos.dat", "a+b");
 	
-	printf("Ingrese los Datos Requeridos para el Registro");
-	printf("\n================================================");
-	printf("\n\n[ID del Profesional] = ");
+	printf("Ingrese los datos requeridos para el registro");
+	printf("\n");
+	printf("\n\n[ID del profesional] = ");
 	scanf("%d", &DatoTurno.ID);
-	printf("\n[Fecha de Atencion]");
+	printf("\n[Fecha de atencion]");
 	printf("\n\n\t[Dia - DD] = ");
 	scanf("%d", &DatoTurno.FechaTurno.DD);
 	printf("\n\t[Mes - MM] = ");
 	scanf("%d", &DatoTurno.FechaTurno.MM);
 	printf("\n\t[Año - AAAA] = ");
 	scanf("%d", &DatoTurno.FechaTurno.AAAA);
-	printf("\n\n[DNI del Cliente] = ");
+	printf("\n\n[DNI del cliente] = ");
 	scanf("%d", &DatoTurno.DNI);
 	
 	fwrite(&DatoTurno, sizeof(Turnos), 1, Arch);
@@ -286,10 +297,10 @@ main () {
 						
 						system("CLS");
 						
-						printf("¿Continuar Registrando Turnos?");
-						printf("\n\n [0] => No, Salir");
-						printf("\n [1] => Si, Continuar");
-						printf("\n\n==> ");
+						printf("¿Continuar registrando turnos?");
+						printf("\n\n [0] -> No, salir");
+						printf("\n [1] -> Si, continuar");
+						printf("\n\n-> ");
 						scanf("%d", &Ingreso);
 						
 					}

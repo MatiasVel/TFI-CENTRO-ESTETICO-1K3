@@ -16,6 +16,108 @@ void RegTurno ();
 void Listado ();
 
 
+main () {
+
+	setlocale(LC_ALL, "");
+
+	Crear();
+	
+	int Opcion = 0, Ingreso = 1;
+	bool Sesion = false;
+
+	do {
+		
+		system("CLS");
+		
+		printf("Modulo de recepcionista");
+		printf("\n");
+		printf("\n 1.- Iniciar sesion");
+		printf("\n 2.- Registrar cliente");
+		printf("\n 3.- Registrar turno");
+		printf("\n 4.- Listado de atenciones por profesional y fecha\n");
+		printf("\n 5.- Cerrar la aplicacion\n");
+		printf("\nIngrese una opcion: ");
+		scanf("%d", &Opcion);
+		
+		if (!Sesion and Opcion != 1 and Opcion != 5) {
+			
+			system("CLS");
+				
+			printf("Primero inicie sesion...");
+			
+		} else {
+			
+			Ingreso = 1;
+			
+			switch (Opcion) {
+			
+				case 1:
+					
+					system("CLS");
+					
+					Sesion = Inicio();
+					
+				break;
+					
+				case 2:
+					
+					while (Ingreso == 1) {
+						
+						system("CLS");
+					
+						RegCliente();
+						
+						system("CLS");
+						
+						printf("¿Continuar registrando clientes?");
+						printf("\n\n [0] -> No, salir");
+						printf("\n [1] -> Si, continuar");
+						printf("\n\n-> ");
+						scanf("%d", &Ingreso);
+						
+					}
+					
+				break;
+					
+				case 3:
+						
+					while (Ingreso == 1) {
+						
+						system("CLS");
+					
+						RegTurno();
+						
+						system("CLS");
+						
+						printf("¿Continuar registrando turnos?");
+						printf("\n\n [0] -> No, salir");
+						printf("\n [1] -> Si, continuar");
+						printf("\n\n-> ");
+						scanf("%d", &Ingreso);
+						
+					}
+						
+				break;
+					
+				case 4:
+						
+					system("CLS");
+					
+					Listado();
+						
+				break;
+				
+			}
+			
+		}
+		
+		printf("\n\n\n");
+		
+		system("PAUSE");
+		
+	} while (Opcion != 5);
+
+}
 
 
 bool Inicio () {
@@ -31,7 +133,7 @@ bool Inicio () {
 	printf("\n\n [Usuario] = ");
 	_flushall();
 	gets(Buscar.Usuario);
-	printf("\n [Contraseña] = ");
+	printf("\n [Clave] = ");
 	gets(Buscar.Clave);
 	
 	fread(&Dato, sizeof(Usuario), 1, Arch);
@@ -53,7 +155,7 @@ bool Inicio () {
 		
 		system("CLS");
 		
-		printf("Usuario o Contraseña incorrectos...");
+		printf("Usuario o Clave incorrectos...");
 		
 	} else {
 		
@@ -223,107 +325,3 @@ void Listado () {
 	}
 	
 }
-
-main () {
-
-	setlocale(LC_ALL, "");
-
-	Crear();
-	
-	int Opcion = 0, Ingreso = 1;
-	bool Sesion = false;
-
-	do {
-		
-		system("CLS");
-		
-		printf("Modulo de recepcionista");
-		printf("\n");
-		printf("\n 1.- Iniciar sesion");
-		printf("\n 2.- Registrar cliente");
-		printf("\n 3.- Registrar turno");
-		printf("\n 4.- Listado de atenciones por profesional y fecha\n");
-		printf("\n 5.- Cerrar la aplicacion\n");
-		printf("\nIngrese una opcion: ");
-		scanf("%d", &Opcion);
-		
-		if (!Sesion and Opcion != 1 and Opcion != 5) {
-			
-			system("CLS");
-				
-			printf("Primero inicie sesion...");
-			
-		} else {
-			
-			Ingreso = 1;
-			
-			switch (Opcion) {
-			
-				case 1:
-					
-					system("CLS");
-					
-					Sesion = Inicio();
-					
-				break;
-					
-				case 2:
-					
-					while (Ingreso == 1) {
-						
-						system("CLS");
-					
-						RegCliente();
-						
-						system("CLS");
-						
-						printf("¿Continuar registrando clientes?");
-						printf("\n\n [0] -> No, salir");
-						printf("\n [1] -> Si, continuar");
-						printf("\n\n-> ");
-						scanf("%d", &Ingreso);
-						
-					}
-					
-				break;
-					
-				case 3:
-						
-					while (Ingreso == 1) {
-						
-						system("CLS");
-					
-						RegTurno();
-						
-						system("CLS");
-						
-						printf("¿Continuar registrando turnos?");
-						printf("\n\n [0] -> No, salir");
-						printf("\n [1] -> Si, continuar");
-						printf("\n\n-> ");
-						scanf("%d", &Ingreso);
-						
-					}
-						
-				break;
-					
-				case 4:
-						
-					system("CLS");
-					
-					Listado();
-						
-				break;
-				
-			}
-			
-		}
-		
-		printf("\n\n\n");
-		
-		system("PAUSE");
-		
-	} while (Opcion != 5);
-
-}
-

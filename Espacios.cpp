@@ -23,20 +23,26 @@ main () {
 	do {
 		
 		system("CLS");
-		printf("Modulo Espacios");
-		printf("\n");
-		printf("\n\n 1.- Iniciar Sesion");
-		printf("\n 2.- Visualizar Lista de Espera de Turnos (informe)");
-		printf("\n 3.- Registrar Evolucion del tratamiento\n");
-		printf("\n\n 4.- Cerrar la aplicacion.\n");
-		printf("\nIngrese una Opcion: ");
+		
+		printf("\033[1;33m");
+		printf(".................");
+		printf(" \n Modulo Espacios  ");
+		printf("\n................. \n");
+		printf("\033[1;36m");
+		printf("\n 1) -> Iniciar sesion.");
+		printf("\n 2) -> Visualizar lista de espera de turnos (informe).");
+		printf("\n 3) -> Registrar evolucion del tratamiento.");
+		printf("\n 4) -> Cerrar la aplicacion.");
+		printf("\033[1;32m");
+		printf("\n\nIngrese una Opcion: ");
 		scanf("%d", &opc);
+		printf("\033[1;36m");
 		
 		if (!sesion and opc!= 1 and opc!= 4){
 			
 			system("CLS");
 				
-			printf("primero Inicie Sesion...");
+			printf("Primero debe iniciar sesion...");
 			} 
 			
 		else{
@@ -74,7 +80,7 @@ main () {
 		system("PAUSE");
 		
 	}while(opc!=4);
-	
+	printf("\033[0m");
 }
 
 bool inicio (Usuario &Pro) {
@@ -85,12 +91,15 @@ bool inicio (Usuario &Pro) {
 	
 	Arch = fopen("Profesionales.dat", "r+b");
 	
-	printf("Ingrese los datos requeridos");
+	printf("Ingrese los datos requeridos del profesional");
 	printf("\n");
-	printf("\n\n [usuario] = ");
+	printf("\n\n [Usuario] = ");
+	printf("\033[0m");
 	_flushall();
 	gets(Buscar.Usuario);
-	printf("\n [clave] = ");
+	printf("\033[1;36m");
+	printf("\n [Clave] = ");
+	printf("\033[0m");
 	gets(Buscar.Clave);
 	
 	fread(&Dato, sizeof(Usuario), 1, Arch);
@@ -111,13 +120,13 @@ bool inicio (Usuario &Pro) {
 	if (!Sesion) {
 		
 		system("CLS");
-		
-		printf("usuario o clave Incorrectos...");
-		
+		printf("\033[1;31m");
+		printf("Usuario o clave incorrecto...");
+		printf("\033[0m");
 	} else {
 		
 		system("CLS");
-		
+		printf("\033[1;36m");
 		printf("Bienvenido [%s]", Dato.ApeNom);
 		
 	}

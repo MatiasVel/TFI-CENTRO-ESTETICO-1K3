@@ -1,5 +1,3 @@
-//Modulo Administracion
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -7,6 +5,7 @@
 #include <locale.h>
 #include <time.h>
 #include <string.h>
+#include <windows.h>
 #include "Centro_estetico.h"
 
 bool VerificarUsuario (Usuario Dato, int RP);
@@ -23,7 +22,7 @@ void Ranking ();
 
 
 main () {
-
+	
 	setlocale(LC_ALL, "");
 
 	Crear();
@@ -31,19 +30,22 @@ main () {
 	int Opcion = 0, Ingreso;
 	
 	do {
-		
+
 		system("CLS");
-		
-		printf("Modulo Administracion");
-		printf("\n");
-		printf("\n\n 1.- Registrar Profesional");
-		printf("\n 2.- Registrar Usuario Recepcionista");
-		printf("\n 3.- Atenciones por Profesional");
-		printf("\n 4.- Ranking de Profesionales por Atenciones");
-		printf("\n\n 5.- Cerrar la Aplicacion");
+		printf("\033[1;33m");
+		printf(".......................");
+		printf("\n Modulo Administracion");
+		printf("\n.......................");
+		printf("\033[1;36m");
+		printf("\n\n 1) -> Registrar Profesional.");
+		printf("\n 2) -> Registrar Usuario Recepcionista.");
+		printf("\n 3) -> Atenciones por Profesional.");
+		printf("\n 4) -> Ranking de Profesionales por Atenciones.");
+		printf("\n 5) -> Cerrar la Aplicacion.");
+		printf("\033[1;32m");
 		printf("\n\nIngrese una Opcion: ");
 		scanf("%d", &Opcion);
-		
+		printf("\033[1;36m");
 		Ingreso = 1;
 		
 		switch (Opcion) {
@@ -58,8 +60,8 @@ main () {
 					
 					system("CLS");
 					
-					printf("¿continuar registrando Profesionales?");
-					printf("\n\n [0] => No, Salir");
+					printf("¿Continuar registrando profesionales?");
+					printf("\n\n [0] => No, salir");
 					printf("\n [1] => Si, continuar");
 					printf("\n\n==> ");
 					scanf("%d", &Ingreso);
@@ -78,8 +80,8 @@ main () {
 					
 					system("CLS");
 					
-					printf("¿continuar registrando Usuarios recepcionistas?");
-					printf("\n\n [0] => No, Salir");
+					printf("¿Continuar registrando usuarios recepcionistas?");
+					printf("\n\n [0] => No, salir");
 					printf("\n [1] => Si, continuar");
 					printf("\n\n==> ");
 					scanf("%d", &Ingreso);
@@ -362,15 +364,22 @@ void RegPro () {
 
 	printf("\n\n[Apellido y Nombre] = ");
 	_flushall();
+	printf("\033[0m");
 	gets(DatoPro.ApeNom);
+	printf("\033[1;36m");
 	printf("\n[ID Profesional] = ");
+	printf("\033[0m");
 	scanf("%d", &DatoPro.ID);
+	printf("\033[1;36m");
 	printf("\n[DNI del Profesional] = ");
+	printf("\033[0m");
 	scanf("%d", &DatoPro.DNI);
+	printf("\033[1;36m");
 	printf("\n[Telefono] = ");
 	_flushall();
+	printf("\033[0m");
 	gets(DatoPro.Telefono);
-	
+	printf("\033[1;36m");
 	system("CLS");
 	
 	printf("Ingrese los datos requeridos para continuar con el registro");
@@ -380,8 +389,9 @@ void RegPro () {
 	UsuPro.ID = DatoPro.ID;
 	printf("\n\n[Usuario del Profesional] = ");
 	_flushall();
+	printf("\033[0m");
 	gets(UsuPro.Usuario);
-	
+	printf("\033[1;36m");
 	while (!VerificarUsuario(UsuPro, RP)) {
 		
 		system("CLS");
@@ -390,7 +400,7 @@ void RegPro () {
 		printf("\n¿Reintentar?");
 		printf("\n\n[0] = No, Salir");
 		printf("\n[1] = Si, Reintentar");
-		printf("\n\n==> ");
+		printf("\n\n>> ");
 		scanf("%d", &Opcion);
 		
 		if (Opcion == 0) {
@@ -407,14 +417,16 @@ void RegPro () {
 		
 		printf("\n\n[Usuario del Profesional] = ");
 		_flushall();
+		printf("\033[0m");
 		gets(UsuPro.Usuario);
-		
+		printf("\033[1;36m");
 	}
 	
 	printf("\n[Clave del Profesional] = ");
 	_flushall();
+	printf("\033[0m");
 	gets(UsuPro.Clave);
-	
+	printf("\033[1;36m");
 	while (!VerificarClave(UsuPro)) {
 		
 		system("CLS");
@@ -423,7 +435,7 @@ void RegPro () {
 		printf("\n¿Reintentar?");
 		printf("\n\n[0] = No, Salir");
 		printf("\n[1] = Si, Reintentar");
-		printf("\n\n==> ");
+		printf("\n\n >> ");
 		scanf("%d", &Opcion);
 		
 		if (Opcion == 0) {
@@ -467,8 +479,9 @@ void RegRecep () {
 	
 	printf("\n\n[Usuario] = ");
 	_flushall();
+	printf("\033[0m");
 	gets(DatoRecep.Usuario);
-	
+	printf("\033[1;36m");
 	while (!VerificarUsuario(DatoRecep, RP)) {
 		
 		system("CLS");
@@ -477,7 +490,7 @@ void RegRecep () {
 		printf("\n¿Reintentar?");
 		printf("\n\n[0] = No, Salir");
 		printf("\n[1] = Si, Reintentar");
-		printf("\n\n==> ");
+		printf("\n\n>> ");
 		scanf("%d", &Opcion);
 		
 		if (Opcion == 0) {
@@ -492,16 +505,22 @@ void RegRecep () {
 		
 		printf("Ingrese los datos requeridos para el registro");
 		
+		printf("[Apellido y Nombre] = ");
+		printf("\033[0m");
+		gets(DatoRecep.ApeNom);
+		printf("\033[1;36m");
 		printf("\n\n[Usuario] = ");
 		_flushall();
+		printf("\033[0m");
 		gets(DatoRecep.Usuario);
-		
+		printf("\033[1;36m");
 	}
 	
 	printf("[Clave] = ");
 	_flushall();
+	printf("\033[0m");
 	gets(DatoRecep.Clave);
-	
+	printf("\033[1;36m");
 	while (!VerificarClave(DatoRecep)) {
 		
 		system("CLS");
@@ -510,7 +529,7 @@ void RegRecep () {
 		printf("\n¿Reintentar?");
 		printf("\n\n[0] = No, Salir");
 		printf("\n[1] = Si, Reintentar");
-		printf("\n\n==> ");
+		printf("\n\n>> ");
 		scanf("%d", &Opcion);
 		
 		if (Opcion == 0) {
@@ -531,8 +550,7 @@ void RegRecep () {
 		
 	}
 	
-	printf("[Apellido y Nombre] = ");
-	gets(DatoRecep.ApeNom);
+
 	
 	fwrite(&DatoRecep, sizeof(Usuario), 1, Arch);
 	
@@ -562,10 +580,13 @@ void Atenciones () {
 	
 	printf("Ingrese los datos requeridos: ");
 	printf("\n\n[Mes Actual - MM] = ");
+	printf("\033[0m");
 	scanf("%d", &Actual.MM);
+	printf("\033[1;36m");
 	printf("\n[Año Actual - AAAA] = ");
+	printf("\033[0m");
 	scanf("%d", &Actual.AAAA);
-	
+	printf("\033[1;36m");
 	system("CLS");
 	
 	fread(&Buscar, sizeof(Profesional), 1, Pro);
@@ -632,10 +653,13 @@ void Ranking () {
 	
 	printf("Ingrese los datos requeridos: ");
 	printf("\n\n[Mes Actual - MM] = ");
+	printf("\033[0m");
 	scanf("%d", &Actual.MM);
+	printf("\033[1;36m");
 	printf("\n[Año Actual - AAAA] = ");
+	printf("\033[0m");
 	scanf("%d", &Actual.AAAA);
-	
+	printf("\033[1;36m");
 	fread(&Buscar, sizeof(Profesional), 1, Pro);
 	
 	bono = Buscar;
@@ -672,10 +696,10 @@ void Ranking () {
 	system("CLS");
 	
 	printf("El Profesional que recibira el bono mensual con (%d) Atenciones es: ", Mayor);
-	printf("\n\n[Apellido y Nombre] => %s", bono.ApeNom);
-	printf("\n[ID] => %d", bono.ID);
-	printf("\n[DNI] => %d", bono.DNI);
-	printf("\n[Telefono] => %s", bono.Telefono);
+	printf("\n\n[Apellido y Nombre] >> %s", bono.ApeNom);
+	printf("\n[ID] >> %d", bono.ID);
+	printf("\n[DNI] >> %d", bono.DNI);
+	printf("\n[Telefono] >> %s", bono.Telefono);
 	
 	fclose(Pro);
 	fclose(Arch);

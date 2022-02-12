@@ -6,3 +6,7 @@ Juan.GomezOmil@alu.frt.utn.edu.ar
 
 Veliz Héctor Matías - Legajo: 52417
 hector.veliz@alu.frt.utn.edu.ar
+
+Repositorio de github
+
+https://github.com/MatiasVel/TFI-CENTRO-ESTETICO-1K3

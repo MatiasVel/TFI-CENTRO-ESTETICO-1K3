@@ -9,11 +9,11 @@
 
 bool Inicio ();
 
-void RegCliente ();
+void Regtrar_Cliente ();
 
 void RegTurno ();
 
-void Listado ();
+void Listar ();
 
 
 main () {
@@ -70,7 +70,7 @@ main () {
 						
 						system("CLS");
 					
-						RegCliente();
+						Registrar_Cliente();
 						
 						system("CLS");
 						
@@ -110,7 +110,7 @@ main () {
 						
 					system("CLS");
 					
-					Listado();
+					Listar();
 						
 				break;
 				
@@ -128,7 +128,6 @@ main () {
 }
 
 
-bool Inicio () {
 	
 	FILE *Arch;
 	Usuario Buscar, Dato;
@@ -183,7 +182,7 @@ bool Inicio () {
 	
 }
 
-void RegCliente () {
+void Registrar_Cliente () {
 	
 	FILE *Arch;
 	Fecha Actual;
@@ -312,7 +311,7 @@ void RegTurno () {
 	
 }
 
-void Listado () {
+void Listar () {
 	
 	FILE *Arch;
 	Turnos Buscar, Dato;

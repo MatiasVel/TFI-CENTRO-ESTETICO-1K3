@@ -40,6 +40,7 @@ main () {
 		printf("\n 5) -> Cerrar la aplicacion.");
 		printf("\033[1;32m");
 		printf("\n\nIngrese una opcion: ");
+		printf("\033[1;31m");
 		scanf("%d", &Opcion);
 		printf("\033[1;36m");
 		
@@ -74,11 +75,12 @@ main () {
 						system("CLS");
 						
 						printf("¿Continuar registrando clientes?");
-						printf("\n\n [0] -> No, salir");
-						printf("\n [1] -> Si, continuar");
-						printf("\n\n-> ");
+						printf("\n\n [0] >> No, salir");
+						printf("\n [1] >> Si, continuar");
+						printf("\n\n>> ");
+						printf("\033[1;37m");
 						scanf("%d", &Ingreso);
-						
+						printf("\033[1;36m");
 					}
 					
 				break;
@@ -94,11 +96,12 @@ main () {
 						system("CLS");
 						
 						printf("¿Continuar registrando turnos?");
-						printf("\n\n [0] -> No, salir");
-						printf("\n [1] -> Si, continuar");
-						printf("\n\n-> ");
+						printf("\n\n [0] >> No, salir");
+						printf("\n [1] >> Si, continuar");
+						printf("\n\n>> ");
+						printf("\033[1;37m");
 						scanf("%d", &Ingreso);
-						
+						printf("\033[1;36m");
 					}
 						
 				break;
@@ -120,7 +123,7 @@ main () {
 		system("PAUSE");
 		
 	} while (Opcion != 5);
-	printf("\033[0m");
+	printf("\033[1;37m");
 
 }
 
@@ -137,11 +140,11 @@ bool Inicio () {
 	printf("\n");
 	printf("\n\n [Usuario] = ");
 	_flushall();
-	printf("\033[0m");
+	printf("\033[1;37m");
 	gets(Buscar.Usuario);
 	printf("\033[1;36m");
 	printf("\n [Clave] = ");
-	printf("\033[0m");
+	printf("\033[1;37m");
 	gets(Buscar.Clave);
 	printf("\033[1;36m");
 	fread(&Dato, sizeof(Usuario), 1, Arch);
@@ -168,8 +171,9 @@ bool Inicio () {
 	} else {
 		
 		system("CLS");
+		printf("Bienvenido ");
 		printf("\033[1;32m");
-		printf("Bienvenido [%s]", Dato.ApeNom);
+		printf("[%s]",Dato.ApeNom );
 		printf("\033[1;36m");
 	}
 	
@@ -193,46 +197,46 @@ void RegCliente () {
 	printf("\n");
 	printf("\n\n[Apellido y Nombre] = ");
 	_flushall();
-	printf("\033[0m");
+	printf("\033[1;37m");
 	gets(DatoCliente.ApeNom);
 	printf("\033[1;36m");
 	printf("\n[Domicilio] = ");
-	printf("\033[0m");
+	printf("\033[1;37m");
 	gets(DatoCliente.Domicilio);
 	printf("\033[1;36m");
 	printf("\n[DNI] = ");
-	printf("\033[0m");
+	printf("\033[1;37m");
 	scanf("%d", &DatoCliente.DNI);
 	printf("\033[1;36m");
 	printf("\n[Localidad] = ");
 	_flushall();
-	printf("\033[0m");
+	printf("\033[1;37m");
 	gets(DatoCliente.Localidad);
 	printf("\033[1;36m");
 	printf("\n[Fecha de Nacimiento]");
 	printf("\n\n\t[Dia - DD] = ");
-	printf("\033[0m");
+	printf("\033[1;37m");
 	scanf("%d", &DatoCliente.Fecha_nac.DD);
 	printf("\033[1;36m");
 	printf("\n\t[Mes - MM] = ");
-	printf("\033[0m");
+	printf("\033[1;37m");
 	scanf("%d", &DatoCliente.Fecha_nac.MM);
 	printf("\033[1;36m");
-	printf("\n\t[Año - AAAA] = ");
-	printf("\033[0m");
+	printf("\n\t[Anio - AAAA] = ");
+	printf("\033[1;37m");
 	scanf("%d", &DatoCliente.Fecha_nac.AAAA);
 	printf("\033[1;36m");
 	printf("\n\n[Fecha Actual]");
 	printf("\n\n\t[Dia - DD] = ");
-	printf("\033[0m");
+	printf("\033[1;37m");
 	scanf("%d", &Actual.DD);
 	printf("\033[1;36m");
 	printf("\n\t[Mes - MM] = ");
-	printf("\033[0m");
+	printf("\033[1;37m");
 	scanf("%d", &Actual.MM);
 	printf("\033[1;36m");
-	printf("\n\t[Año - AAAA] = ");
-	printf("\033[0m");
+	printf("\n\t[Anio - AAAA] = ");
+	printf("\033[1;37m");
 	scanf("%d", &Actual.AAAA);
 	
 	if (DatoCliente.Fecha_nac.MM < Actual.MM) {
@@ -256,14 +260,14 @@ void RegCliente () {
 		DatoCliente.Edad = (Actual.AAAA - DatoCliente.Fecha_nac.AAAA) - 1;
 			
 	}
-
+	printf("\033[1;36m");
 	printf("\n\n[Peso] = ");
-	printf("\033[0m");
+	printf("\033[1;37m");
 	scanf("%f", &DatoCliente.Peso);
 	printf("\033[1;36m");
 	printf("\n[Telefono] = ");
 	_flushall();
-	printf("\033[0m");
+	printf("\033[1;37m");
 	gets(DatoCliente.Telefono);
 	printf("\033[1;36m");
 	fwrite(&DatoCliente, sizeof(Cliente), 1, Arch);
@@ -282,24 +286,24 @@ void RegTurno () {
 	printf("Ingrese los datos requeridos para el registro\n");
 
 	printf("\n\n[ID del profesional] = ");
-	printf("\033[0m");
+	printf("\033[1;37m");
 	scanf("%d", &DatoTurno.ID);
 	printf("\033[1;36m");	
 	printf("\n[Fecha de atencion]");
 	printf("\n\n\t[Dia - DD] = ");
-	printf("\033[0m");
+	printf("\033[1;37m");
 	scanf("%d", &DatoTurno.FechaTurno.DD);
 	printf("\033[1;36m");
 	printf("\n\t[Mes - MM] = ");
-	printf("\033[0m");
+	printf("\033[1;37m");
 	scanf("%d", &DatoTurno.FechaTurno.MM);
 	printf("\033[1;36m");
-	printf("\n\t[Año - AAAA] = ");
-	printf("\033[0m");
+	printf("\n\t[Anio - AAAA] = ");
+	printf("\033[1;37m");
 	scanf("%d", &DatoTurno.FechaTurno.AAAA);
 	printf("\033[1;36m");
 	printf("\n\n[DNI del cliente] = ");
-	printf("\033[0m");
+	printf("\033[1;37m");
 	scanf("%d", &DatoTurno.DNI);
 	printf("\033[1;36m");
 	fwrite(&DatoTurno, sizeof(Turnos), 1, Arch);
@@ -319,15 +323,22 @@ void Listado () {
 	printf("Ingrese los datos requeridos para la busqueda");
 	printf("\n");
 	printf("\n\n[ID del profesional] = ");
+	printf("\033[1;37m");
 	scanf("%d", &Buscar.ID);
+	printf("\033[1;36m");
 	printf("\n[Fecha de atencion]");
 	printf("\n\n\t[Dia - DD] = ");
+	printf("\033[1;37m");
 	scanf("%d", &Buscar.FechaTurno.DD);
+	printf("\033[1;36m");
 	printf("\n\t[Mes - MM] = ");
+	printf("\033[1;37m");
 	scanf("%d", &Buscar.FechaTurno.MM);
-	printf("\n\t[Año - AAAA] = ");
+	printf("\033[1;36m");
+	printf("\n\t[Anio - AAAA] = ");
+	printf("\033[1;37m");
 	scanf("%d", &Buscar.FechaTurno.AAAA);
-	
+	printf("\033[1;36m");
 	fread(&Dato, sizeof(Turnos), 1, Arch);
 	
 	while (!feof(Arch)) {
@@ -336,12 +347,23 @@ void Listado () {
 			
 			system("CLS");
 			
-			printf("\n Lista de atencion");
-			
-			printf("\n\n[ID del profesional] -> %d", Dato.ID);
-			printf("\n[Fecha de atencion] -> %d/%d/%d", Dato.FechaTurno.DD, Dato.FechaTurno.MM, Dato.FechaTurno.AAAA);
-			printf("\n[DNI del cliente] -> %d", Dato.DNI);
-			printf("\n[Diagnostico] -> %s\n\n\n", Dato.DetalleAtencion);
+			printf("\nLista de atencion");
+			printf("\n\n[ID del profesional] >> ");
+			printf("\033[1;37m");
+			printf("%d", Dato.ID);
+			printf("\033[1;36m");
+			printf("\n[Fecha de atencion] >> ");
+			printf("\033[1;37m");
+			printf("%d/%d/%d", Dato.FechaTurno.DD, Dato.FechaTurno.MM, Dato.FechaTurno.AAAA);
+			printf("\033[1;36m");
+			printf("\n[DNI del cliente] >> ");
+			printf("\033[1;37m");
+			printf("%d",Dato.DNI );
+			printf("\033[1;36m");
+			printf("\n[Diagnostico] >> ");
+			printf("\033[1;37m");
+			printf("%s.\n\n\n",Dato.DetalleAtencion);
+			printf("\033[1;36m");
 			
 			Existe = true;
 			

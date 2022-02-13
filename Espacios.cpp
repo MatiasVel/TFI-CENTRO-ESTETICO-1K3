@@ -35,6 +35,7 @@ main () {
 		printf("\n 4) -> Cerrar la aplicacion.");
 		printf("\033[1;32m");
 		printf("\n\nIngrese una Opcion: ");
+		printf("\033[1;31m");
 		scanf("%d", &opc);
 		printf("\033[1;36m");
 		
@@ -80,7 +81,7 @@ main () {
 		system("PAUSE");
 		
 	}while(opc!=4);
-	printf("\033[0m");
+	printf("\033[1;37m");
 }
 
 bool inicio (Usuario &Pro) {
@@ -94,12 +95,12 @@ bool inicio (Usuario &Pro) {
 	printf("Ingrese los datos requeridos del profesional");
 	printf("\n");
 	printf("\n\n [Usuario] = ");
-	printf("\033[0m");
+	printf("\033[1;37m");
 	_flushall();
 	gets(Buscar.Usuario);
 	printf("\033[1;36m");
 	printf("\n [Clave] = ");
-	printf("\033[0m");
+	printf("\033[1;37m");
 	gets(Buscar.Clave);
 	
 	fread(&Dato, sizeof(Usuario), 1, Arch);
@@ -122,13 +123,15 @@ bool inicio (Usuario &Pro) {
 		system("CLS");
 		printf("\033[1;31m");
 		printf("Usuario o clave incorrecto...");
-		printf("\033[0m");
+		printf("\033[1;37m");
 	} else {
 		
 		system("CLS");
 		printf("\033[1;36m");
-		printf("Bienvenido [%s]", Dato.ApeNom);
-		
+		printf("Bienvenido" );
+		printf("\033[1;32m ");
+		printf("[%s]", Dato.ApeNom);
+		printf("\033[1;36m");
 	}
 	
 	Pro = Dato;
@@ -162,11 +165,17 @@ void listarturnos (Usuario Pro) {
 	printf("\n");
 	printf("\n\n[Fecha actual]");
 	printf("\n\n\t[Dia - DD] = ");
+	printf("\033[1;37m");
 	scanf("%d", &Actual.DD);
+	printf("\033[1;36m");
 	printf("\n\t[Mes - MM] = ");
+	printf("\033[1;37m");
 	scanf("%d", &Actual.MM);
+	printf("\033[1;36m");
 	printf("\n\t[Año - AAAA] = ");
+	printf("\033[1;37m");
 	scanf("%d", &Actual.AAAA);
+	printf("\033[1;36m");
 	
 	fread(&Dato, sizeof(Turnos), 1, Arch);
 	
@@ -189,8 +198,14 @@ void listarturnos (Usuario Pro) {
 				
 				if (Dato.DNI == DatoCli.DNI) {
 					
-					printf("[Apellido y Nombre] => %s    ---    [DNI] => %d\n\n", DatoCli.ApeNom, DatoCli.DNI);
-					
+					printf("[Apellido y Nombre] = ");
+					printf("\033[1;37m");
+					printf("%s",DatoCli.ApeNom );
+					printf("\033[1;36m");
+					printf(" ==== [DNI] = ");
+					printf("\033[1;37m");
+					printf("%d\n\n",DatoCli.DNI );
+					printf("\033[1;36m");
 				}
 				
 				fread(&DatoCli, sizeof(Cliente), 1, Aux);
@@ -242,18 +257,28 @@ void atencion (Usuario Pro) {
 	
 	printf("Ingrese los datos requeridos para comenzar la atencion");
 	printf("\n");
-	printf("\n\n[Apellido y nombre del cliente] = ");
+	printf("\n[Apellido y Nombre del cliente] = ");
 	_flushall();
+	printf("\033[1;37m");
 	gets(Nom);
+	printf("\033[1;36m");
 	printf("\n\n[DNI del cliente] = ");
+	printf("\033[1;37m");
 	scanf("%d", &DNI);
+	printf("\033[1;36m");
 	printf("\n\n[Fecha actual]");
 	printf("\n\n\t[Dia] = ");
+	printf("\033[1;37m");
 	scanf("%d", &Actual.DD);
+	printf("\033[1;36m");
 	printf("\n\t[Mes] = ");
+	printf("\033[1;37m");
 	scanf("%d", &Actual.MM);
+	printf("\033[1;36m");
 	printf("\n\t[Año] = ");
+	printf("\033[1;37m");
 	scanf("%d", &Actual.AAAA);
+	printf("\033[1;36m");
 	_flushall();
 	
 	fread(&Dato, sizeof(Turnos), 1, Arch);
@@ -272,21 +297,39 @@ void atencion (Usuario Pro) {
 						
 					system("CLS");
 			
+			
 					printf("Datos del cliente");
 					printf("\n");
-					printf("\n\n[Apellido y Nombre] => %s", DatoCli.ApeNom);
-					printf("\n[DNI] => %d", DatoCli.DNI);
-					printf("\n[Domicilio] => %s", DatoCli.Domicilio);
-					printf("\n[Edad] => %d", DatoCli.Edad);
-					printf("\n[Peso] => %.2f kg\n\n\n", DatoCli.Peso);
+					printf("\n\n[Apellido y Nombre] >> ");
+					printf("\033[1;37m");
+					printf("%s",DatoCli.ApeNom);
+					printf("\033[1;36m");
+					printf("\n[DNI] >> ");
+					printf("\033[1;37m");
+					printf("%d",DatoCli.DNI);
+					printf("\033[1;36m");
+					printf("\n[Domicilio] >> ", DatoCli.Domicilio);
+					printf("\033[1;37m");
+					printf("%s",DatoCli.Domicilio);
+					printf("\033[1;36m");
+					printf("\n[Edad] >> ");
+					printf("\033[1;37m");
+					printf("%d",DatoCli.Edad);
+					printf("\033[1;36m");
+					printf("\n[Peso] >> ");
+					printf("\033[1;37m");
+					printf("%.2f kg\n\n\n",DatoCli.Peso);
+					printf("\033[1;36m");
 					
 					system("PAUSE");
 					
 					system("CLS");
 
 					printf("Ingrese la evolucion del tratamiento (380 o menos caracteres)");
-					printf("\n\n==> ");
+					printf("\n\n >> ");
+					printf("\033[1;37m");
 					gets(Dato.DetalleAtencion);
+					printf("\033[1;36m");
 					strcpy(Dato.ApeNom, Pro.ApeNom);
 					
 					fwrite(&Dato, sizeof(Turnos), 1, Atencion);

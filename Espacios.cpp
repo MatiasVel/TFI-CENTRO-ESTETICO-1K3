@@ -9,7 +9,7 @@
 
 bool inicio (Usuario &Pro);
 
-void listarturnos (Usuario Pro);
+void Listar_Turnos (Usuario Pro);
 
 void atencion (Usuario Pro);
 
@@ -64,7 +64,7 @@ main () {
 					
 					system("CLS");
 					
-					listarturnos(Pro);
+					Listar_Turnos(Pro);
 					
 					break;
 				
@@ -142,7 +142,7 @@ bool inicio (Usuario &Pro) {
 	
 }
 
-void listarturnos (Usuario Pro) {
+void Listar_Turnos (Usuario Pro) {
 	
 	FILE *Arch, *Aux;
 	Turnos Dato;

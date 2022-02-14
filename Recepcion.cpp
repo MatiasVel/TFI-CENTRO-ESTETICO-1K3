@@ -9,11 +9,11 @@
 
 bool Inicio ();
 
-void Regtrar_Cliente ();
+void Registrar_Cliente ();
 
-void RegTurno ();
+void Registrar_Turno ();
 
-void Listar ();
+void Lista ();
 
 
 main () {
@@ -36,7 +36,7 @@ main () {
 		printf("\n\n 1) -> Iniciar sesion.");
 		printf("\n 2) -> Registrar cliente.");
 		printf("\n 3) -> Registrar turno.");
-		printf("\n 4) -> Listado de atenciones por profesional y fecha.");
+		printf("\n 4) -> Lista de atenciones por profesional y fecha.");
 		printf("\n 5) -> Cerrar la aplicacion.");
 		printf("\033[1;32m");
 		printf("\n\nIngrese una opcion: ");
@@ -91,7 +91,7 @@ main () {
 						
 						system("CLS");
 					
-						RegTurno();
+						Registrar_Turno();
 						
 						system("CLS");
 						
@@ -110,7 +110,7 @@ main () {
 						
 					system("CLS");
 					
-					Listar();
+					Lista();
 						
 				break;
 				
@@ -128,6 +128,7 @@ main () {
 }
 
 
+bool Inicio () {
 	
 	FILE *Arch;
 	Usuario Buscar, Dato;
@@ -275,7 +276,7 @@ void Registrar_Cliente () {
 	
 }
 
-void RegTurno () {
+void Registrar_Turno () {
 	
 	FILE *Arch;
 	Turnos DatoTurno;
@@ -311,7 +312,7 @@ void RegTurno () {
 	
 }
 
-void Listar () {
+void Lista () {
 	
 	FILE *Arch;
 	Turnos Buscar, Dato;

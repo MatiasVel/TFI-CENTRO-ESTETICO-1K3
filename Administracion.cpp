@@ -10,11 +10,11 @@
 
 bool VerificarUsuario (Usuario Dato, int RP);
 
-bool VerificarClave (Usuario Dato);
+bool Verificar_Clave (Usuario Dato);
 
-void RegPro ();
+void Registrar_Profesional ();
 
-void RegRecep ();
+void Registrar_Recepcionista ();
 
 void Atenciones ();
 
@@ -57,11 +57,11 @@ main () {
 						
 					system("CLS");
 				
-					RegPro();
+					Registrar_Profesional();
 					
 					system("CLS");
 					
-					printf("¿Continuar registrando profesionales?");
+					printf("?Continuar registrando profesionales?");
 					printf("\n\n [0] >> No, salir");
 					printf("\n [1] >> Si, continuar");
 					printf("\n\n >> ");
@@ -78,11 +78,11 @@ main () {
 						
 					system("CLS");
 				
-					RegRecep();
+					Registrar_Recepcionista();
 					
 					system("CLS");
 					
-					printf("¿Continuar registrando usuarios recepcionistas?");
+					printf("?Continuar registrando usuarios recepcionistas?");
 					printf("\n\n [0] >> No, salir");
 					printf("\n [1] >> Si, continuar");
 					printf("\n\n >> ");
@@ -192,7 +192,7 @@ bool VerificarUsuario (Usuario Dato, int RP) {
 		
 		Cond = false;
 		
-		printf("\nEl Usuario debe contener 2 o más mayusculas\n");
+		printf("\nEl Usuario debe contener 2 o mas mayusculas\n");
 		
 	}
 	
@@ -212,7 +212,7 @@ bool VerificarUsuario (Usuario Dato, int RP) {
 		
 		Cond = false;
 		
-		printf("\nEl Usuario no puede contener más de 3 números\n");
+		printf("\nEl Usuario no puede contener mas de 3 n?meros\n");
 		
 	}
 	
@@ -230,7 +230,7 @@ bool VerificarUsuario (Usuario Dato, int RP) {
 	
 }
 
-bool VerificarClave (Usuario Dato) {
+bool Verificar_Clave (Usuario Dato) {
 	
 	bool Cond = true, Mayus = false, Minus = false, Num = false;
 	int Size = strlen(Dato.Clave);
@@ -257,7 +257,7 @@ bool VerificarClave (Usuario Dato) {
 		
 		Cond = false;
 		
-		printf("\nLa Clave debe contener una mayuscula, una minusculas y un número\n");
+		printf("\nLa Clave debe contener una mayuscula, una minusculas y un numero\n");
 		
 	}
 	
@@ -304,7 +304,7 @@ bool VerificarClave (Usuario Dato) {
 					
 					Cond = false;
 					
-					printf("\nLa Clave no puede tener 3 números seguidos\n");
+					printf("\nLa Clave no puede tener 3 numeros seguidos\n");
 					
 				}
 				
@@ -322,7 +322,7 @@ bool VerificarClave (Usuario Dato) {
 				
 				Cond = false;
 				
-				printf("\nLa Clave no debe tener 2 caracteres consecutivos que refieran a letras alfabéticamente consecutivas \n");
+				printf("\nLa Clave no debe tener 2 caracteres consecutivos que refieran a letras alfabeticamente consecutivas \n");
 				
 			}
 			
@@ -332,7 +332,7 @@ bool VerificarClave (Usuario Dato) {
 				
 				Cond = false;
 				
-				printf("\nLa Clave no debe tener 2 caracteres consecutivos que refieran a letras alfabéticamente consecutivas \n");
+				printf("\nLa Clave no debe tener 2 caracteres consecutivos que refieran a letras alfabeticamente consecutivas \n");
 				
 			}
 			
@@ -352,7 +352,7 @@ bool VerificarClave (Usuario Dato) {
 	
 }
 
-void RegPro () {
+void Registrar_Profesional () {
 	
 	FILE *Arch, *Info;
 	Profesional DatoPro;
@@ -402,7 +402,7 @@ void RegPro () {
 		system("CLS");
 		
 		printf("No se cumplieron las condiciones para la creacion del Usuario");
-		printf("\n¿Reintentar?");
+		printf("\n?Reintentar?");
 		printf("\n\n[0] = No, Salir");
 		printf("\n[1] = Si, Reintentar");
 		printf("\n\n>> ");
@@ -433,12 +433,12 @@ void RegPro () {
 	printf("\033[1;37m");
 	gets(UsuPro.Clave);
 	printf("\033[1;36m");
-	while (!VerificarClave(UsuPro)) {
+	while (!Verificar_Clave(UsuPro)) {
 		
 		system("CLS");
 		
-		printf("No se cumplieron las condiciones para la creacion de la contraseña");
-		printf("\n¿Reintentar?");
+		printf("No se cumplieron las condiciones para la creacion de la contrase?a");
+		printf("\n?Reintentar?");
 		printf("\n\n[0] = No, Salir");
 		printf("\n[1] = Si, Reintentar");
 		printf("\n\n >> ");
@@ -473,7 +473,7 @@ void RegPro () {
 	
 }
 
-void RegRecep () {
+void Registrar_Recepcionista () {
 	
 	FILE *Arch;
 	Usuario DatoRecep;
@@ -530,7 +530,7 @@ void RegRecep () {
 	printf("\033[1;37m");
 	gets(DatoRecep.Clave);
 	printf("\033[1;36m");
-	while (!VerificarClave(DatoRecep)) {
+	while (!Verificar_Clave(DatoRecep)) {
 		
 		system("CLS");
 		
@@ -596,7 +596,7 @@ void Atenciones () {
 	printf("\033[1;37m");
 	scanf("%d", &Actual.MM);
 	printf("\033[1;36m");
-	printf("\n[Año Actual - AAAA] = ");
+	printf("\n[A?o Actual - AAAA] = ");
 	printf("\033[1;37m");
 	scanf("%d", &Actual.AAAA);
 	printf("\033[1;36m");
@@ -669,7 +669,7 @@ void Ranking () {
 	printf("\033[1;37m");
 	scanf("%d", &Actual.MM);
 	printf("\033[1;36m");
-	printf("\n[Año Actual - AAAA] = ");
+	printf("\n[Anio Actual - AAAA] = ");
 	printf("\033[1;37m");
 	scanf("%d", &Actual.AAAA);
 	printf("\033[1;36m");
